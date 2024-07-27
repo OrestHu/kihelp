@@ -27,6 +27,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         if(!exist){
             userRepository.save(user);
+        } else {
+            var updatedUser = userRepository.findByTelegramId(user.getTelegramId()).orElseThrow(
+                    () -> new UserNotFoundException(USER_NOT_FOUND)
+            );
+            updatedUser.setUsername(user.getUsername());
+            updatedUser.setLogo(user.getLogo());
+            userRepository.save(updatedUser);
         }
     }
 
