@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UserService {
     void createUser(User user);
+    User getUserByTelegramId(String telegramId);
     List<User> getUsers();
     User getUser(Long userId);
 }

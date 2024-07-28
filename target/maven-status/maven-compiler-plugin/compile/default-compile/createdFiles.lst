@@ -2,6 +2,7 @@ org\example\kihelp\task\mapper\impl\TestToTestInfoResponseMapperImpl.class
 org\example\kihelp\teacher\repository\TeacherRepository.class
 org\example\kihelp\subject\mapper\SubjectRequestToSubjectMapper.class
 org\example\kihelp\task\model\req\TaskRequest.class
+org\example\kihelp\user\api\service\UserApiService.class
 org\example\kihelp\task\mapper\TaskRequestToTaskMapper.class
 org\example\kihelp\teacher\service\impl\TeacherServiceImpl.class
 org\example\kihelp\user\exception\RoleNotFoundException.class
@@ -52,7 +53,9 @@ org\example\kihelp\task\model\resp\TaskProgramResponse.class
 org\example\kihelp\subject\usecase\impl\SubjectDeleteUseCaseImpl.class
 org\example\kihelp\subject\mapper\impl\SubjectToSubjectResponseMapperImpl.class
 org\example\kihelp\teacher\usecase\TeacherGetUseCase.class
+org\example\kihelp\task\mapper\impl\TaskToTaskResponseMapperImpl.class
 org\example\kihelp\user\exception\BadCredentialsException.class
+org\example\kihelp\task\model\resp\TaskResponse.class
 org\example\kihelp\user\model\resp\UserResponse.class
 org\example\kihelp\task\model\resp\TestInfoResponse.class
 org\example\kihelp\user\mapper\UserToUserResponseMapper.class
@@ -64,7 +67,9 @@ org\example\kihelp\user\repository\UserRepository.class
 org\example\kihelp\subject\repository\SubjectRepository.class
 org\example\kihelp\task\usecase\TestGetUseCase.class
 org\example\kihelp\teacher\usecase\impl\TeacherUpdateUseCaseImpl.class
+org\example\kihelp\task\exception\TaskAlreadyExistException.class
 org\example\kihelp\subject\model\resp\SubjectResponse.class
+org\example\kihelp\user\api\model\UserResponseApi.class
 org\example\kihelp\subject\usecase\impl\SubjectCreateUseCaseImpl.class
 org\example\kihelp\task\mapper\impl\TaskToTaskInfoResponseMapperImpl.class
 org\example\kihelp\task\usecase\TaskProgramUseCase.class
@@ -73,6 +78,7 @@ org\example\kihelp\task\controller\TaskController.class
 org\example\kihelp\user\mapper\UserRegisterRequestToUserMapper.class
 org\example\kihelp\task\service\ArgumentService.class
 org\example\kihelp\teacher\usecase\impl\TeacherDeleteUseCaseImpl.class
+org\example\kihelp\user\api\service\impl\UserApiServiceImpl.class
 org\example\kihelp\task\usecase\impl\TaskProgramUseCaseImpl.class
 org\example\kihelp\task\service\AttachmentService.class
 org\example\kihelp\user\usecase\UserGetUseCase.class
@@ -86,6 +92,7 @@ org\example\kihelp\teacher\usecase\TeacherCreateUseCase.class
 org\example\kihelp\teacher\usecase\TeacherDeleteUseCase.class
 org\example\kihelp\teacher\service\TeacherService.class
 org\example\kihelp\user\mapper\impl\UserRegisterRequestToUserMapperImpl.class
+org\example\kihelp\task\mapper\TaskToTaskResponseMapper.class
 org\example\kihelp\task\mapper\TestToTestInfoResponseMapper.class
 org\example\kihelp\teacher\mapper\impl\TeacherToTeacherResponseMapperImpl.class
 org\example\kihelp\subject\usecase\impl\SubjectUpdateUseCaseImpl.class
@@ -104,6 +111,7 @@ org\example\kihelp\user\model\Role.class
 org\example\kihelp\user\service\UserService.class
 org\example\kihelp\user\model\resp\JwtUserResponse.class
 org\example\kihelp\subject\util\MessageError.class
+org\example\kihelp\task\exception\TaskNotFoundException.class
 org\example\kihelp\task\usecase\impl\TaskGetUseCaseImpl.class
 org\example\kihelp\user\model\User.class
 org\example\kihelp\task\usecase\TaskCreateUseCase.class

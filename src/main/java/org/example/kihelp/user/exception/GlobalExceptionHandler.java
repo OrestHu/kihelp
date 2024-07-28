@@ -3,6 +3,8 @@ package org.example.kihelp.user.exception;
 
 import org.example.kihelp.subject.exception.SubjectAlreadyExist;
 import org.example.kihelp.subject.exception.SubjectNotFoundException;
+import org.example.kihelp.task.exception.TaskAlreadyExistException;
+import org.example.kihelp.task.exception.TaskNotFoundException;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.exception.TeacherNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -74,6 +76,20 @@ public class GlobalExceptionHandler extends Throwable {
 
     @ExceptionHandler(TeacherNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleTeacherNotFoundException(TeacherNotFoundException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(TaskAlreadyExistException.class)
+    public ResponseEntity<Map<String, String>> handleTaskAlreadyExistException(TaskAlreadyExistException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(TaskNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleTaskNotFoundException(TaskNotFoundException ex){
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

@@ -4,6 +4,8 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\service\i
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\impl\SubjectUpdateUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\TaskService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\mapper\impl\TeacherUpdateRequestToTeacherMapperImpl.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\TaskAlreadyExistException.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\api\model\UserResponseApi.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\MapperV2.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\service\TeacherService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\impl\SubjectCreateUseCaseImpl.java
@@ -32,6 +34,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\contoller\Us
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\SubjectToSubjectResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherCreateUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\JwtTokenExpiredException.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\resp\TaskResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\mapper\TeacherRequestToTeacherMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\UserNotFoundException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\TaskToTaskInfoResponseMapper.java
@@ -45,8 +48,10 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\util\Mess
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\controller\SubjectController.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\TeacherGetUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\resp\TestInfoResponse.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\api\service\UserApiService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\request\UserRegisterRequest.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\SubjectRequestToSubjectMapper.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\api\service\impl\UserApiServiceImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherDeleteUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\Attachment.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\util\MessageError.java
@@ -55,6 +60,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\S
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\GlobalExceptionHandler.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\resp\JwtUserResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\impl\ArgumentServiceImpl.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\TaskNotFoundException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\TaskRequestToTaskMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\impl\UserRegisterRequestToUserMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\usecase\UserCreateUseCase.java
@@ -93,6 +99,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\UserT
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\BadCredentialsException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\repository\RoleRepository.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\req\TaskRequest.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\TaskToTaskResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\TaskProgramUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\config\SecurityConfig.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\exception\TeacherAlreadyExist.java
@@ -103,6 +110,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\im
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\RoleNotFoundException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\resp\TeacherResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\resp\TaskInfoResponse.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\TaskToTaskResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\SubjectGetUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\exception\SubjectAlreadyExist.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\impl\SubjectToSubjectResponseMapperImpl.java

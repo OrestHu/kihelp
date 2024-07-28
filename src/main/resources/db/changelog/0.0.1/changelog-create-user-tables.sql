@@ -7,8 +7,7 @@ create table ki_help.users
     id          serial primary key,
     telegram_id varchar  not null unique,
     username    varchar,
-    password    varchar not null,
-    logo        varchar not null
+    password    varchar not null
 );
 --rollback drop table ki_help.users;
 

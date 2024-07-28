@@ -25,7 +25,6 @@ public class UserRegisterRequestToUserMapperImpl implements UserRegisterRequestT
         user.setTelegramId(userRegisterRequest.telegramId());
         user.setUsername(userRegisterRequest.username());
         user.setPassword(passwordEncoder.encode(userRegisterRequest.telegramId()));
-        user.setLogo(userRegisterRequest.logo());
 
         var role = roleRepository.findByName("ROLE_USER")
                 .orElseThrow(() -> new RoleNotFoundException(String.format(ROLE_NOT_FOUND, "ROLE_USER")));

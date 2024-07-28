@@ -15,7 +15,6 @@ public class User {
     private String telegramId;
     private String username;
     private String password;
-    private String logo;
 
     @ManyToMany
     @JoinTable( schema = "ki_help",

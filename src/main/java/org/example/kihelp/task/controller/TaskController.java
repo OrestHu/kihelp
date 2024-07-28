@@ -1,10 +1,12 @@
 package org.example.kihelp.task.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.model.req.TaskRequest;
 import org.example.kihelp.task.model.resp.TaskInfoResponse;
 import org.example.kihelp.task.model.resp.TaskProgramResponse;
+import org.example.kihelp.task.model.resp.TaskResponse;
 import org.example.kihelp.task.model.resp.TestInfoResponse;
 import org.example.kihelp.task.usecase.TaskCreateUseCase;
 import org.example.kihelp.task.usecase.TaskGetUseCase;
@@ -14,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
@@ -25,7 +28,7 @@ public class TaskController {
     private final TestGetUseCase testGetUseCase;
 
     @PostMapping("/task")
-    public void createTask(@RequestBody TaskRequest taskRequest) {
+    public void createTask(@Valid @RequestBody TaskRequest taskRequest) {
         taskCreateUseCase.createTask(taskRequest);
     }
 
@@ -34,11 +37,18 @@ public class TaskController {
         return taskGetUseCase.getTaskInfo(taskId);
     }
 
-    @GetMapping("/test/info/{test_id}/{repeat_count}")
-    public TestInfoResponse getTestInfo(@PathVariable("test_id") Integer testId,
-                                        @PathVariable("repeat_count") Integer repeatCount){
-        return testGetUseCase.getTestInfo(testId, repeatCount);
+    @GetMapping("/task/{subject_id}/{teacher_id}")
+    public List<TaskResponse> getTasksBySubjectAndTeacher(
+            @PathVariable("subject_id") Integer subjectId,
+            @PathVariable("teacher_id") Integer teacherId) {
+        return taskGetUseCase.getTasksBySubjectAndTeacher(subjectId, teacherId);
     }
+//
+//    @GetMapping("/test/info/{test_id}/{repeat_count}")
+//    public TestInfoResponse getTestInfo(@PathVariable("test_id") Integer testId,
+//                                        @PathVariable("repeat_count") Integer repeatCount){
+//        return testGetUseCase.getTestInfo(testId, repeatCount);
+//    }
 
     @GetMapping(value = "/task/program/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     public TaskProgramResponse programTask(@PathVariable("task_id") Integer taskId,

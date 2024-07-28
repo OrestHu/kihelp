@@ -31,9 +31,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             var updatedUser = userRepository.findByTelegramId(user.getTelegramId()).orElseThrow(
                     () -> new UserNotFoundException(USER_NOT_FOUND)
             );
-            updatedUser.setUsername(user.getUsername());
-            updatedUser.setLogo(user.getLogo());
-            userRepository.save(updatedUser);
+            if(!user.getUsername().equals(updatedUser.getUsername())) {
+                updatedUser.setUsername(user.getUsername());
+                userRepository.save(updatedUser);
+            }
         }
     }
 
@@ -50,6 +51,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 );
     }
 
+    @Override
     public User getUserByTelegramId(String telegramId) {
         return userRepository.findByTelegramId(telegramId)
                 .orElseThrow(

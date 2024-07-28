@@ -1,10 +1,15 @@
 package org.example.kihelp.task.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.kihelp.subject.model.Subject;
+import org.example.kihelp.task.exception.TaskAlreadyExistException;
+import org.example.kihelp.task.exception.TaskNotFoundException;
 import org.example.kihelp.task.model.Task;
 import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.repository.TaskRepository;
 import org.example.kihelp.task.service.TaskService;
+import org.example.kihelp.teacher.model.Teacher;
+import org.example.kihelp.user.api.service.UserApiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +26,14 @@ public class TaskServiceImpl implements TaskService {
     @Value("${answer}")
     private String FILE_DIRECTORY;
     private final TaskRepository taskRepository;
+    private final UserApiService userApiService;
 
     @Override
     public void createTask(Task task) {
         var exist = taskRepository.existsByTitle(task.getTitle());
 
         if (exist) {
-            throw new RuntimeException(String.format(TASK_ALREADY_EXIST, task.getTitle()));
+            throw new TaskAlreadyExistException(String.format(TASK_ALREADY_EXIST, task.getTitle()));
         }
 
         taskRepository.save(task);
@@ -36,23 +42,28 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getTaskById(Integer taskId) {
         return taskRepository.findById(taskId).orElseThrow(
-                () -> new RuntimeException(TASK_NOT_FOUND)
+                () -> new TaskNotFoundException(TASK_NOT_FOUND)
         );
     }
 
     @Override
+    public List<Task> getTasksBySubjectAndTeacher(Subject subject, Teacher teacher) {
+        return taskRepository.findBySubjectAndTeacher(subject, teacher);
+    }
+
+
+    @Override
     public String programTask(Integer taskId, TaskProgramRequest request) {
+        var user = userApiService.currentUserAccount();
         var task = getTaskById(taskId);
         var path = task.getPath();
-
-        System.out.println(path);
 
         try {
             List<String> command = new ArrayList<>();
             command.add("python");
             command.add(path);
             command.addAll(request.args());
-            command.add(request.userId().toString());
+            command.add(user.userId().toString());
 
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(true);
@@ -70,9 +81,9 @@ public class TaskServiceImpl implements TaskService {
             throw new RuntimeException(e);
         }
 
-        var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", request.userId()));
+        var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", user.userId()));
 
-        return String.format("task_%s.%s", request.userId(), extension);
+        return String.format("task_%s.%s", user.userId(), extension);
     }
 
     private static String findFileAndDetermineExtension(String directoryPath, String fileNameWithoutExtension) {

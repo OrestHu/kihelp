@@ -13,8 +13,7 @@ public class UserToUserResponseMapperImpl implements UserToUserResponseMapper {
         return new UserResponse(
                 user.getId(),
                 user.getTelegramId(),
-                user.getUsername(),
-                user.getLogo()
+                user.getUsername()
         );
     }
 }
