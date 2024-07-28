@@ -6,3 +6,7 @@
 ### User
 
 1. [Деталі про User](docs/users.md)
+
+### Subject
+
+2. [Деталі про Subject](docs/subject.md)
