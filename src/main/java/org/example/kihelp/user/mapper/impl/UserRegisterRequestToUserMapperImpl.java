@@ -6,6 +6,7 @@ import org.example.kihelp.user.mapper.UserRegisterRequestToUserMapper;
 import org.example.kihelp.user.model.User;
 import org.example.kihelp.user.model.request.UserRegisterRequest;
 import org.example.kihelp.user.repository.RoleRepository;
+import org.example.kihelp.wallet.model.Wallet;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

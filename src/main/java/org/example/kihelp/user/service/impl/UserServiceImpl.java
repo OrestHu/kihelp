@@ -5,6 +5,9 @@ import org.example.kihelp.user.exception.UserNotFoundException;
 import org.example.kihelp.user.model.User;
 import org.example.kihelp.user.repository.UserRepository;
 import org.example.kihelp.user.service.UserService;
+import org.example.kihelp.wallet.model.Wallet;
+import org.example.kihelp.wallet.service.WalletService;
+import org.hibernate.validator.internal.util.stereotypes.Lazy;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,13 +23,16 @@ import static org.example.kihelp.user.util.MessageError.USER_NOT_FOUND;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
+    private final WalletService walletService;
 
     @Override
     public void createUser(User user) {
         var exist = userRepository.existsByTelegramId(user.getTelegramId());
 
         if(!exist){
-            userRepository.save(user);
+            var userRes = userRepository.save(user);
+
+            walletService.createWallet(userRes, new Wallet().builder().amount(0.0).build());
         } else {
             var updatedUser = userRepository.findByTelegramId(user.getTelegramId()).orElseThrow(
                     () -> new UserNotFoundException(USER_NOT_FOUND)

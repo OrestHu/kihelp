@@ -2,6 +2,7 @@ package org.example.kihelp.user.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.kihelp.wallet.model.Wallet;
 
 import java.util.List;
 
@@ -23,4 +24,7 @@ public class User {
                 inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<Role> roles;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    private Wallet wallet;
 }
