@@ -10,3 +10,7 @@
 ### Subject
 
 2. [Деталі про Subject](docs/subject.md)
+
+### Teacher
+
+3. [Деталі про Teacher](docs/teacher.md)
