@@ -14,3 +14,7 @@
 ### Teacher
 
 3. [Деталі про Teacher](docs/teacher.md)
+
+### Task
+
+4. [Деталі про Task](docs/task.md)

@@ -8,7 +8,7 @@ public record TaskResponse(
         Integer price,
         Double discount,
         Boolean type,
-        Integer subjectId,
+        Integer teacherId,
         List<String> args
 ) {
 }
