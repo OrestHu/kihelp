@@ -18,3 +18,7 @@
 ### Task
 
 4. [Деталі про Task](docs/task.md)
+
+### Argument (Використовується тільки в Task)
+
+5. [Деталі про Argument](docs/argument.md)
