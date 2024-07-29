@@ -3,7 +3,7 @@ package org.example.kihelp.task.mapper.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.mapper.TestToTestInfoResponseMapper;
 import org.example.kihelp.task.model.Task;
-import org.example.kihelp.task.model.resp.TestInfoResponse;
+import org.example.kihelp.task.model.resp.TaskResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class TestToTestInfoResponseMapperImpl implements TestToTestInfoResponseMapper {
     @Override
-    public TestInfoResponse map(Task task, Integer repeat) {
+    public TaskResponse map(Task task, Integer repeat) {
         var argument = task.getArguments();
 
         var args = new ArrayList<String>();
@@ -20,6 +20,14 @@ public class TestToTestInfoResponseMapperImpl implements TestToTestInfoResponseM
             args.add(String.format("%s %s",argument.get(0).getName(), i + 1));
         }
 
-        return new TestInfoResponse(task.getTitle(), args);
+        return new TaskResponse(
+                task.getId(),
+                task.getTitle(),
+                task.getPrice(),
+                task.getDiscount(),
+                task.getType(),
+                task.getTeacher().getId(),
+                args
+        );
     }
 }

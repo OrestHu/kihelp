@@ -19,14 +19,15 @@ create table ki_help.subjects
 create table ki_help.tasks
 (
     id       serial primary key,
-    title    varchar not null unique,
+    title    varchar not null,
     path     varchar not null,
     price    int     not null,
     discount decimal,
-    subject_id int not null,
+    type     boolean,
     teacher_id int not null
 );
 --rollback drop table ki_help.tasks;
+
 
 --changeset OrestHutovych:create-ki_help-teachers-table
 --comment create table ki_help.teachers
@@ -55,6 +56,18 @@ create table ki_help.tasks_arguments
     argument_id integer not null
 );
 --rollback drop table ki_help.tasks_arguments;
+
+--changeset OrestHutovych:add-tasks-table-constraints
+--comment add constraints to tasks
+alter table ki_help.tasks
+    add constraint tasks__teacher_id__fk
+        foreign key (teacher_id) references ki_help.teachers(id);
+
+alter table ki_help.tasks
+    add constraint unique_task_title_per_teacher
+        unique (title, teacher_id);
+--rollback alter table ki_help.tasks drop constraint tasks__teacher_id__fk;
+--rollback alter table ki_help.tasks drop constraint unique_task_title_per_teacher;
 
 
 --changeset OrestHutovych:add-tasks_arguments-table-constraints

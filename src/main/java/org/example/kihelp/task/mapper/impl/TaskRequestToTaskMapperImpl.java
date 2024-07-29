@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class TaskRequestToTaskMapperImpl implements TaskRequestToTaskMapper {
-    private final SubjectService subjectService;
     private final TeacherService teacherService;
     private final ArgumentService argumentService;
 
@@ -23,12 +22,11 @@ public class TaskRequestToTaskMapperImpl implements TaskRequestToTaskMapper {
         task.setPath(taskRequest.path());
         task.setPrice(taskRequest.price());
         task.setDiscount(0.0);
+        task.setType(taskRequest.type());
 
-        var subject = subjectService.findSubject(taskRequest.subjectId());
-        var arguments = taskRequest.argumentsId().stream().map(argumentService::getArgument).toList();
         var teacher = teacherService.getTeacher(taskRequest.teacherId());
+        var arguments = taskRequest.argumentsId().stream().map(argumentService::getArgument).toList();
 
-        task.setSubject(subject);
         task.setTeacher(teacher);
         task.setArguments(arguments);
 

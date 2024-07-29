@@ -27,6 +27,6 @@ public class UserApiServiceImpl implements UserApiService {
         var username = authentication.getName();
         var user = userService.getUserByTelegramId(username);
 
-        return new UserResponseApi(user.getId());
+        return new UserResponseApi(user.getId(), user.getTelegramId());
     }
 }

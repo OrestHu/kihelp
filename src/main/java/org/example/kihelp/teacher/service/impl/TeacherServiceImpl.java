@@ -1,6 +1,7 @@
 package org.example.kihelp.teacher.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.kihelp.subject.model.Subject;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.exception.TeacherNotFoundException;
 import org.example.kihelp.teacher.model.Teacher;
@@ -20,7 +21,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public void createTeacher(Teacher teacher) {
-        var exist = teacherRepository.existsBySubject(teacher.getSubject());
+        var exist = teacherRepository.existsByNameAndSubject(teacher.getName(), teacher.getSubject());
 
         if (exist) {
             throw new TeacherAlreadyExist(String.format(TEACHER_ALREADY_EXIST, teacher.getName()));
@@ -39,6 +40,11 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public List<Teacher> getTeachers() {
         return teacherRepository.findAll();
+    }
+
+    @Override
+    public List<Teacher> getTeacherBySubject(Subject subject) {
+        return teacherRepository.findBySubject(subject);
     }
 
     @Override

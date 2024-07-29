@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TaskRepository extends JpaRepository<Task, Integer> {
-    boolean existsByTitle(String title);
+    boolean existsByTitleAndTeacher(String title, Teacher teacher);
     Optional<Task> findByTitle(String title);
-    List<Task> findBySubjectAndTeacher(Subject subject, Teacher teacher);
+    List<Task> findByTeacher(Teacher teacher);
 }

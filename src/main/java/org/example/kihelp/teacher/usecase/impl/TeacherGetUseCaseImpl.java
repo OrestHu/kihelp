@@ -1,6 +1,7 @@
 package org.example.kihelp.teacher.usecase.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.kihelp.subject.service.SubjectService;
 import org.example.kihelp.teacher.mapper.TeacherToTeacherResponseMapper;
 import org.example.kihelp.teacher.model.resp.TeacherResponse;
 import org.example.kihelp.teacher.service.TeacherService;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeacherGetUseCaseImpl implements TeacherGetUseCase {
     private final TeacherService teacherService;
+    private final SubjectService subjectService;
     private final TeacherToTeacherResponseMapper teacherToTeacherResponseMapper;
 
     @Override
@@ -20,6 +22,14 @@ public class TeacherGetUseCaseImpl implements TeacherGetUseCase {
         var teacher = teacherService.getTeacher(teacherId);
 
         return teacherToTeacherResponseMapper.map(teacher);
+    }
+
+    @Override
+    public List<TeacherResponse> getTeacherBySubject(Integer subjectId) {
+        var subject = subjectService.findSubject(subjectId);
+        var teachers = teacherService.getTeacherBySubject(subject);
+
+        return teachers.stream().map(teacherToTeacherResponseMapper::map).toList();
     }
 
     @Override

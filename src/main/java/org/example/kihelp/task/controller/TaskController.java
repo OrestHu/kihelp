@@ -4,15 +4,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.model.req.TaskRequest;
-import org.example.kihelp.task.model.resp.TaskInfoResponse;
+import org.example.kihelp.task.model.req.TaskUpdateRequest;
 import org.example.kihelp.task.model.resp.TaskProgramResponse;
 import org.example.kihelp.task.model.resp.TaskResponse;
-import org.example.kihelp.task.model.resp.TestInfoResponse;
-import org.example.kihelp.task.usecase.TaskCreateUseCase;
-import org.example.kihelp.task.usecase.TaskGetUseCase;
-import org.example.kihelp.task.usecase.TaskProgramUseCase;
-import org.example.kihelp.task.usecase.TestGetUseCase;
-import org.springframework.http.MediaType;
+import org.example.kihelp.task.usecase.task.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -24,35 +19,46 @@ import java.util.List;
 public class TaskController {
     private final TaskCreateUseCase taskCreateUseCase;
     private final TaskGetUseCase taskGetUseCase;
-    private final TaskProgramUseCase taskProgramUseCase;
     private final TestGetUseCase testGetUseCase;
+    private final TaskProgramUseCase taskProgramUseCase;
+    private final TaskDeleteUseCase taskDeleteUseCase;
+    private final TaskUpdateUseCase taskUpdateUseCase;
 
     @PostMapping("/task")
     public void createTask(@Valid @RequestBody TaskRequest taskRequest) {
         taskCreateUseCase.createTask(taskRequest);
     }
 
-    @GetMapping("/task/info/{task_id}")
-    public TaskInfoResponse getTaskInfo(@PathVariable("task_id") Integer taskId) {
+    @GetMapping("/task/teacher/{teacher_id}")
+    public List<TaskResponse> getTasksByTeacher(@PathVariable("teacher_id") Integer teacherId) {
+        return taskGetUseCase.getTasksByTeacher(teacherId);
+    }
+
+    @GetMapping("/task/{task_id}")
+    public TaskResponse getTaskInfo(@PathVariable("task_id") Integer taskId) {
         return taskGetUseCase.getTaskInfo(taskId);
     }
 
-    @GetMapping("/task/{subject_id}/{teacher_id}")
-    public List<TaskResponse> getTasksBySubjectAndTeacher(
-            @PathVariable("subject_id") Integer subjectId,
-            @PathVariable("teacher_id") Integer teacherId) {
-        return taskGetUseCase.getTasksBySubjectAndTeacher(subjectId, teacherId);
+    @GetMapping("/test/{test_id}/{repeat_count}")
+    public TaskResponse getTestInfo(@PathVariable("test_id") Integer testId,
+                                    @PathVariable("repeat_count") Integer repeatCount){
+        return testGetUseCase.getTestInfo(testId, repeatCount);
     }
-//
-//    @GetMapping("/test/info/{test_id}/{repeat_count}")
-//    public TestInfoResponse getTestInfo(@PathVariable("test_id") Integer testId,
-//                                        @PathVariable("repeat_count") Integer repeatCount){
-//        return testGetUseCase.getTestInfo(testId, repeatCount);
-//    }
 
-    @GetMapping(value = "/task/program/{task_id}", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
+    @GetMapping("/task/program/{task_id}")
     public TaskProgramResponse programTask(@PathVariable("task_id") Integer taskId,
                                            @RequestBody TaskProgramRequest programRequest) throws IOException {
         return taskProgramUseCase.programTask(taskId, programRequest);
+    }
+
+    @DeleteMapping("/task/{task_id}")
+    public void deleteTask(@PathVariable("task_id") Integer taskId) {
+        taskDeleteUseCase.deleteTask(taskId);
+    }
+
+    @PatchMapping("/task/{task_id}")
+    public void updateTask(@PathVariable("task_id") Integer taskId,
+                           @Valid @RequestBody TaskUpdateRequest taskRequest){
+        taskUpdateUseCase.updateTask(taskId, taskRequest);
     }
 }

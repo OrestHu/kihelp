@@ -14,8 +14,8 @@ public record TaskRequest(
         String path,
         @NotNull(message = "Ціна не має дорівнювати null")
         Integer price,
-        Integer subjectId,
         Integer teacherId,
+        Boolean type,
         List<Integer> argumentsId
 ) {
 }

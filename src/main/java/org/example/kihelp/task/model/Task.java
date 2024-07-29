@@ -9,20 +9,19 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(schema = "ki_help", name = "tasks")
+@Table(schema = "ki_help", name = "tasks", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"title", "teacher_id"})
+})
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "title", nullable = false, unique = true)
+    @Column(name = "title", nullable = false)
     private String title;
     private String path;
     private Integer price;
     private Double discount;
-
-    @ManyToOne
-    @JoinColumn(name = "subject_id", referencedColumnName = "id")
-    private Subject subject;
+    private Boolean type;
 
     @ManyToMany
     @JoinTable(
