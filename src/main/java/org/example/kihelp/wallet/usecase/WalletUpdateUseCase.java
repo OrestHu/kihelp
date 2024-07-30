@@ -4,4 +4,5 @@ import org.example.kihelp.wallet.model.req.WalletRequest;
 
 public interface WalletUpdateUseCase {
     void updateWallet(Integer walletId, WalletRequest walletRequest);
+    void updateWalletByUser(String userUUID, WalletRequest walletRequest);
 }

@@ -43,3 +43,13 @@
 }
 ```
 
+#### /api/v1/wallets/wallet/user/{user_tg_id} [PUT] - Обновити гаманець по user telegram_id
+
+***Вхідні параметри***
+
+```json
+{
+  "amount": 10.0
+}
+```
+

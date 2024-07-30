@@ -36,4 +36,10 @@ public class WalletController {
                              @RequestBody WalletRequest walletRequest){
         walletUpdateUseCase.updateWallet(walletId, walletRequest);
     }
+
+    @PutMapping("/wallet/user/{user_tg_id}")
+    public void updateWalletByUser(@PathVariable("user_tg_id") String userUUID,
+                                    @RequestBody WalletRequest walletRequest){
+        walletUpdateUseCase.updateWalletByUser(userUUID, walletRequest);
+    }
 }

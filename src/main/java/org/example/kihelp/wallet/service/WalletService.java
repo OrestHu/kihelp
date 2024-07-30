@@ -12,4 +12,5 @@ public interface WalletService {
     Wallet getWallet(Integer walletId);
     Wallet getWalletByUser(User user);
     void updateWallet(Integer walletId, WalletRequest walletRequest);
+    void updateWalletByUser(User user, WalletRequest walletRequest);
 }

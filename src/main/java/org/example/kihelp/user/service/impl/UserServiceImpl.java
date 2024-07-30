@@ -45,6 +45,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    public User getUserByUserUUID(String userUUID) {
+        return userRepository.findByTelegramId(userUUID)
+                .orElseThrow(
+                        () -> new UserNotFoundException(USER_NOT_FOUND)
+                );
+    }
+
+    @Override
     public List<User> getUsers() {
         return userRepository.findAll();
     }
