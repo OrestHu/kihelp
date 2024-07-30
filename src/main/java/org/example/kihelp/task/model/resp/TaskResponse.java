@@ -4,6 +4,7 @@ import java.util.List;
 
 public record TaskResponse(
         Integer id,
+        String subjectTitle,
         String title,
         Integer price,
         Double discount,

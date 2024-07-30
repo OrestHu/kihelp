@@ -28,6 +28,7 @@
 [
   {
     "id": 1,
+    "subjectTitle": "",
     "title": "",
     "path": "",
     "price": 1,
@@ -50,6 +51,7 @@
 ```json
 {
   "id": 1,
+  "subjectTitle": "",
   "title": "",
   "path": "",
   "price": 1,
@@ -71,6 +73,7 @@
 ```json
 {
   "id": 1,
+  "subjectTitle": "",
   "title": "",
   "path": "",
   "price": 1,

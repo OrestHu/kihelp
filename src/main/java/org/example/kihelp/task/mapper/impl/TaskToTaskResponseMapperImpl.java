@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 public class TaskToTaskResponseMapperImpl implements TaskToTaskResponseMapper {
 
     @Override
-    public TaskResponse map(Task task) {
+    public TaskResponse map(Task task, String subTitle) {
         var args = task.getArguments().stream().map(Argument::getName).toList();
 
         return new TaskResponse(
                 task.getId(),
+                subTitle,
                 task.getTitle(),
                 task.getPrice(),
                 task.getDiscount(),

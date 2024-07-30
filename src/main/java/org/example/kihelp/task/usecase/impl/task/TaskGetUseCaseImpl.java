@@ -20,8 +20,9 @@ public class TaskGetUseCaseImpl implements TaskGetUseCase {
     @Override
     public TaskResponse getTaskInfo(Integer taskId) {
         var task = taskService.getTaskById(taskId);
+        var titleOfSubject = task.getTeacher().getSubject().getTitle();
 
-        return taskToTaskResponseMapper.map(task);
+        return taskToTaskResponseMapper.map(task, titleOfSubject);
     }
 
     @Override
@@ -29,6 +30,6 @@ public class TaskGetUseCaseImpl implements TaskGetUseCase {
         var teacher = teacherService.getTeacher(teacherId);
         var tasks = taskService.getTasksByTeacher(teacher);
 
-        return tasks.stream().map(taskToTaskResponseMapper::map).toList();
+        return tasks.stream().map(e -> taskToTaskResponseMapper.map(e, e.getTeacher().getSubject().getTitle())).toList();
     }
 }

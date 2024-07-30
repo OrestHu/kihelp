@@ -14,6 +14,7 @@ public class TestToTestInfoResponseMapperImpl implements TestToTestInfoResponseM
     @Override
     public TaskResponse map(Task task, Integer repeat) {
         var argument = task.getArguments();
+        var titleOfSubject = task.getTeacher().getSubject().getTitle();
 
         var args = new ArrayList<String>();
         for(int i = 0; i < repeat; i++) {
@@ -22,6 +23,7 @@ public class TestToTestInfoResponseMapperImpl implements TestToTestInfoResponseM
 
         return new TaskResponse(
                 task.getId(),
+                titleOfSubject,
                 task.getTitle(),
                 task.getPrice(),
                 task.getDiscount(),
