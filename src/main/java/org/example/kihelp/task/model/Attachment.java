@@ -18,6 +18,5 @@ public class Attachment {
     private Long id;
     private String name;
     private String type;
-    @Lob
-    private byte[] data;
+    private String link;
 }

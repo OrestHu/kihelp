@@ -4,6 +4,9 @@ import org.example.kihelp.user.model.User;
 import org.example.kihelp.wallet.model.Wallet;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WalletRepository extends JpaRepository<Wallet, Long> {
+import java.util.Optional;
+
+public interface WalletRepository extends JpaRepository<Wallet, Integer> {
     boolean existsByUser(User user);
+    Optional<Wallet> findByUser(User user);
 }

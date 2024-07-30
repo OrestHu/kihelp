@@ -6,6 +6,8 @@ import org.example.kihelp.subject.exception.SubjectNotFoundException;
 import org.example.kihelp.task.exception.*;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.exception.TeacherNotFoundException;
+import org.example.kihelp.wallet.exception.WalletAlreadyExist;
+import org.example.kihelp.wallet.exception.WalletNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -110,6 +112,20 @@ public class GlobalExceptionHandler extends Throwable {
 
     @ExceptionHandler(ArgumentNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleArgumentNotFoundException(ArgumentNotFoundException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(WalletAlreadyExist.class)
+    public ResponseEntity<Map<String, String>> handleWalletAlreadyExist(WalletAlreadyExist ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(WalletNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleWalletNotFoundException(WalletNotFoundException ex){
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

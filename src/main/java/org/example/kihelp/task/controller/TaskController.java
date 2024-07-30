@@ -45,7 +45,7 @@ public class TaskController {
         return testGetUseCase.getTestInfo(testId, repeatCount);
     }
 
-    @GetMapping("/task/program/{task_id}")
+    @PostMapping("/task/program/{task_id}")
     public TaskProgramResponse programTask(@PathVariable("task_id") Integer taskId,
                                            @RequestBody TaskProgramRequest programRequest) throws IOException {
         return taskProgramUseCase.programTask(taskId, programRequest);

@@ -7,6 +7,6 @@ create table ki_help.attachments
     id    serial primary key,
     name varchar not null,
     type varchar not null,
-    data bigint
+    data varchar not null
 );
 --rollback drop table ki_help.attachments;

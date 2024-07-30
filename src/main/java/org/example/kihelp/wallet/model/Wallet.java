@@ -23,7 +23,6 @@ public class Wallet {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-
     public void setUser(User user) {
         this.user = user;
         user.setWallet(this);

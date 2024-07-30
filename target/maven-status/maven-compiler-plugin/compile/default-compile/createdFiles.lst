@@ -1,4 +1,5 @@
 org\example\kihelp\task\mapper\impl\TestToTestInfoResponseMapperImpl.class
+org\example\kihelp\wallet\exception\WalletNotFoundException.class
 org\example\kihelp\teacher\repository\TeacherRepository.class
 org\example\kihelp\subject\mapper\SubjectRequestToSubjectMapper.class
 org\example\kihelp\task\model\req\TaskRequest.class

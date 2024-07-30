@@ -1,6 +1,7 @@
 package org.example.kihelp.wallet.model.resp;
 
 public record WalletResponse(
-        Integer id
+        Integer id,
+        Double amount
 ) {
 }

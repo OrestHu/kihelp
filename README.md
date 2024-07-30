@@ -22,3 +22,7 @@
 ### Argument (Використовується тільки в Task)
 
 5. [Деталі про Argument](docs/argument.md)
+
+### Wallet
+
+6. [Деталі про Wallet](docs/wallet.md)
