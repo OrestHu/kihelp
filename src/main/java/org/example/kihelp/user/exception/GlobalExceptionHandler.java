@@ -75,6 +75,13 @@ public class GlobalExceptionHandler extends Throwable {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(MassageNotSentToTelegramException.class)
+    public ResponseEntity<Map<String, String>> handleMassageNotSentToTelegramException(MassageNotSentToTelegramException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(TeacherNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleTeacherNotFoundException(TeacherNotFoundException ex){
         Map<String, String> error = new HashMap<>();

@@ -1,5 +1,7 @@
 package org.example.kihelp.task.config;
 
+import org.example.kihelp.task.exception.MassageNotSentToTelegramException;
+import org.example.kihelp.task.model.resp.TaskResponse;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
@@ -24,23 +26,19 @@ public class MyTelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // Тут ви можете обробляти вхідні повідомлення
     }
 
-    public String sendDocument(Long chatId, String filePath) {
+    public void sendDocument(Long chatId, String filePath, TaskResponse response) {
         SendDocument sendDocument = new SendDocument();
         sendDocument.setChatId(chatId.toString());
         sendDocument.setDocument(new InputFile(new File(filePath)));
+        sendDocument.setCaption(String.format("*Відповідь до %s*\nз предмету %s", response.title(), response.subjectTitle()));  // Використовуємо \n для нового рядка
+        sendDocument.setParseMode("Markdown");
 
         try {
-            Message message = execute(sendDocument);
-            if (message != null && message.getDocument() != null) {
-                return "https://t.me/" + getBotUsername() + "?document=" + message.getDocument().getFileId();
-            }
+            execute(sendDocument);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            throw new MassageNotSentToTelegramException(e.getMessage());
         }
-
-        return "";
     }
 }

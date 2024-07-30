@@ -60,7 +60,7 @@ public class TaskServiceImpl implements TaskService {
 
         try {
             ProcessBuilder pb = new ProcessBuilder();
-            String pythonCommand = System.getProperty("python.command", "python3");
+            String pythonCommand = System.getProperty("python.command", "python");
             pb.command(pythonCommand, path);
             pb.command().addAll(request.args());
             pb.command().add(userDetails.telegramId());

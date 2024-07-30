@@ -46,9 +46,9 @@ public class TaskController {
     }
 
     @PostMapping("/task/program/{task_id}")
-    public TaskProgramResponse programTask(@PathVariable("task_id") Integer taskId,
+    public void programTask(@PathVariable("task_id") Integer taskId,
                                            @RequestBody TaskProgramRequest programRequest) throws IOException {
-        return taskProgramUseCase.programTask(taskId, programRequest);
+        taskProgramUseCase.programTask(taskId, programRequest);
     }
 
     @DeleteMapping("/task/{task_id}")

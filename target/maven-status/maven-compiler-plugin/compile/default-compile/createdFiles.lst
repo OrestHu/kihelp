@@ -39,12 +39,10 @@ org\example\kihelp\user\usecase\impl\UserGetUseCaseImpl.class
 org\example\kihelp\user\usecase\UserCreateUseCase.class
 org\example\kihelp\subject\exception\SubjectNotFoundException.class
 org\example\kihelp\teacher\exception\TeacherAlreadyExist.class
-org\example\kihelp\task\service\impl\AttachmentServiceImpl.class
 org\example\kihelp\teacher\mapper\TeacherUpdateRequestToTeacherMapper.class
 org\example\kihelp\teacher\exception\TeacherNotFoundException.class
 org\example\kihelp\teacher\model\Teacher.class
 org\example\kihelp\teacher\model\resp\TeacherResponse.class
-org\example\kihelp\task\model\Attachment.class
 org\example\kihelp\subject\model\request\SubjectRequest.class
 org\example\kihelp\task\model\resp\TaskProgramResponse.class
 org\example\kihelp\subject\usecase\impl\SubjectDeleteUseCaseImpl.class
@@ -72,7 +70,6 @@ org\example\kihelp\user\mapper\UserRegisterRequestToUserMapper.class
 org\example\kihelp\task\service\ArgumentService.class
 org\example\kihelp\teacher\usecase\impl\TeacherDeleteUseCaseImpl.class
 org\example\kihelp\user\api\service\impl\UserApiServiceImpl.class
-org\example\kihelp\task\service\AttachmentService.class
 org\example\kihelp\user\usecase\UserGetUseCase.class
 org\example\kihelp\teacher\usecase\impl\TeacherGetUseCaseImpl.class
 org\example\kihelp\subject\mapper\MapperV2.class
@@ -89,7 +86,6 @@ org\example\kihelp\task\mapper\TaskToTaskResponseMapper.class
 org\example\kihelp\task\mapper\TestToTestInfoResponseMapper.class
 org\example\kihelp\teacher\mapper\impl\TeacherToTeacherResponseMapperImpl.class
 org\example\kihelp\subject\usecase\impl\SubjectUpdateUseCaseImpl.class
-org\example\kihelp\task\repository\AttachmentRepository.class
 org\example\kihelp\subject\usecase\SubjectGetUseCase.class
 org\example\kihelp\user\util\MessageError.class
 org\example\kihelp\subject\usecase\SubjectCreateUseCase.class

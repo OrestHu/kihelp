@@ -27,7 +27,6 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\task
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\argument\ArgumentGetUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\request\TeacherUpdateRequest.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\Task.java
-C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\impl\AttachmentServiceImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\argument\ArgumentCreateUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\request\TeacherRequest.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\impl\TaskServiceImpl.java
@@ -75,7 +74,6 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\reques
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\SubjectRequestToSubjectMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\api\service\impl\UserApiServiceImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherDeleteUseCaseImpl.java
-C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\Attachment.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\util\MessageError.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\controller\ArgumentController.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\controller\TeacherController.java
@@ -89,11 +87,11 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\argument\ArgumentGetUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\impl\UserRegisterRequestToUserMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\usecase\UserCreateUseCase.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\MassageNotSentToTelegramException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\TestToTestInfoResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\Argument.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\TeacherUpdateUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\config\MyTelegramBot.java
-C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\repository\AttachmentRepository.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\SubjectUpdateUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\service\impl\TeacherServiceImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\req\ArgumentRequest.java
@@ -102,7 +100,6 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\mapper\impl\TeacherToTeacherResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\resp\UserResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\model\resp\SubjectResponse.java
-C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\AttachmentService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\UserRegisterRequestToUserMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\util\JwtUtils.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\impl\SubjectDeleteUseCaseImpl.java
@@ -128,6 +125,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\Ba
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\repository\RoleRepository.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\mapper\WalletToWalletResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\req\TaskRequest.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\MapperV3.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\TaskToTaskResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\config\SecurityConfig.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\task\TaskCreateUseCaseImpl.java
