@@ -6,7 +6,7 @@ public record TaskResponse(
         Integer id,
         String subjectTitle,
         String title,
-        Integer price,
+        Double price,
         Double discount,
         Boolean type,
         Integer teacherId,

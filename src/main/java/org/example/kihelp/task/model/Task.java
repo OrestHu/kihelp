@@ -2,7 +2,6 @@ package org.example.kihelp.task.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.kihelp.subject.model.Subject;
 import org.example.kihelp.teacher.model.Teacher;
 
 import java.util.List;

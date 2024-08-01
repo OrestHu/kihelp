@@ -2,6 +2,7 @@ package org.example.kihelp.wallet.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.user.model.User;
+import org.example.kihelp.wallet.exception.NotEnoughAmountException;
 import org.example.kihelp.wallet.exception.WalletAlreadyExist;
 import org.example.kihelp.wallet.exception.WalletNotFoundException;
 import org.example.kihelp.wallet.model.Wallet;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.example.kihelp.wallet.utils.MessageError.NOT_ENOUGH_MONEY;
 import static org.example.kihelp.wallet.utils.MessageError.WALLET_ALREADY_EXISTS;
 import static org.example.kihelp.wallet.utils.MessageError.WALLET_NOT_FOUND;
 
@@ -82,5 +84,14 @@ public class WalletServiceImpl implements WalletService {
         }
 
         walletRepository.save(wallet);
+    }
+
+    @Override
+    public void validatedBalance(Wallet wallet, Double price) {
+        if(wallet.getAmount() < price){
+            throw new NotEnoughAmountException(
+                    String.format(NOT_ENOUGH_MONEY, price - wallet.getAmount())
+            );
+        }
     }
 }

@@ -14,4 +14,5 @@ public interface WalletService {
     void updateWallet(Integer walletId, WalletRequest walletRequest);
     void topUpWallet(Integer walletId, WalletRequest walletRequest);
     void updateWalletByUser(Long userId, WalletRequest walletRequest);
+    void validatedBalance(Wallet wallet, Double price);
 }

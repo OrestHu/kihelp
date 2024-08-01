@@ -17,7 +17,7 @@ public class TaskToTaskResponseMapperImpl implements TaskToTaskResponseMapper {
                 task.getId(),
                 subTitle,
                 task.getTitle(),
-                task.getPrice(),
+                (double)task.getPrice(),
                 task.getDiscount(),
                 task.getType(),
                 task.getTeacher().getId(),

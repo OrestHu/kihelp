@@ -1,12 +1,21 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   datasource:
-    url: jdbc:postgresql://postgres-db.ctoiwoqmopgw.eu-north-1.rds.amazonaws.com:5432/postgres
-    username: postgres
-    password: ptcyZG9-T9yciQa
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 server:
   port: 8082
 
 jwt:
-  secret: 984hg493gh0439rthr0429uruj2309yh937gc763fe87t3f89723gf
-  lifetime: 1440m
+  secret: ${JWT_SECRET}
+  lifetime: 60m
+
+telegram:
+  username: ${TELEGRAM_USERNAME}
+  token: ${TELEGRAM_TOKEN}
+
+file:
+  directory: ${FILE_DIRECTORY}

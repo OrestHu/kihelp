@@ -5,4 +5,5 @@ public class MessageError {
     public static final String WALLET_NOT_FOUND = "Гаманець не знайдено.";
     public static final String TRANSACTION_ALREADY_EXISTS = "Транзакція уже існує.";
     public static final String TRANSACTION_NOT_FOUND = "Транзакцію не знайдено.";
+    public static final String NOT_ENOUGH_MONEY = "На вашому гаманці недостатньо коштів. Поповніть баланс на %s грн.";
 }

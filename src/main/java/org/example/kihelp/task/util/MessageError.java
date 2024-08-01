@@ -8,5 +8,5 @@ public class MessageError {
     public static final String ERROR_DURING_PROGRAM_TASK = "Виникла помилка впродовж виконання завдання.";
     public static final String PROCESS_TIME_OUT = "Час процесу вийшов.";
     public static final String ARGUMENT_ALREADY_EXIST = "Аргумет %s уже існує.";
-    public static final String NOT_ENOUGH_MONEY = "На вашому гаманці недостатньо коштів. Поповніть баланс на %s грн.";
+    public static final String MESSAGE_BLOCKED_MY_USER = "Користувач заблокував надсилання файлів.";
 }

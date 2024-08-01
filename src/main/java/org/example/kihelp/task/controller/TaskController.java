@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.model.req.TaskRequest;
 import org.example.kihelp.task.model.req.TaskUpdateRequest;
-import org.example.kihelp.task.model.resp.TaskProgramResponse;
 import org.example.kihelp.task.model.resp.TaskResponse;
 import org.example.kihelp.task.usecase.task.*;
 import org.springframework.web.bind.annotation.*;
