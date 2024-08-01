@@ -8,6 +8,7 @@ import org.example.kihelp.task.service.TaskService;
 import org.example.kihelp.task.usecase.task.TaskGetUseCase;
 import org.example.kihelp.task.usecase.task.TaskProgramUseCase;
 import org.example.kihelp.user.api.service.UserApiService;
+import org.example.kihelp.wallet.model.req.WalletRequest;
 import org.example.kihelp.wallet.service.WalletService;
 import org.springframework.stereotype.Component;
 
@@ -49,5 +50,7 @@ public class TaskProgramUseCaseImpl implements TaskProgramUseCase {
         );
 
         Files.delete(path);
+
+        walletService.topUpWallet(wallet.getId(), new WalletRequest((double) -taskInfo.price()));
     }
 }
