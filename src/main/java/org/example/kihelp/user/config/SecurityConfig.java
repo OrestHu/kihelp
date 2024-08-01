@@ -32,7 +32,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
                                 .requestMatchers("/api/v1/users/user").permitAll()
-//                                .requestMatchers("/api/v1/subjects/subject").hasRole("ADMIN")
+                                .requestMatchers("/api/v1/wallets/wallet/user/{user_tg_id}").permitAll()
+                                .requestMatchers("/api/v1/transactions/transaction").permitAll()
+                                .requestMatchers("/api/v1/wallets/wallet").hasRole("ADMIN")
+                                .requestMatchers("/api/v1/transactions/transaction/all").hasRole("ADMIN")
+                                .requestMatchers("/api/v1/transactions/transaction/{transaction_id}").hasRole("ADMIN")
                                 .requestMatchers("/error").permitAll()
                                 .anyRequest().authenticated()
                 )

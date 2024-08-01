@@ -1,4 +1,4 @@
-#### /api/v1/wallets/wallet [GET] - Получити список гаманців
+#### /api/v1/wallets/wallet [GET] - Получити список гаманців (Потрібна роль ADMIN)
 
 ***Вихідні параметри***
 
@@ -11,7 +11,7 @@
 ]
 ```
 
-#### /api/v1/wallets/wallet/{wallet_id} [GET] - Получити гаманець по wallet id
+#### /api/v1/wallets/wallet/{wallet_id} [GET] - Получити гаманець по wallet id (Потрібна роль ADMIN)
 
 ***Вихідні параметри***
 
@@ -22,7 +22,7 @@
 }
 ```
 
-#### /api/v1/wallets/wallet/user/{user_id} [GET] - Получити гаманець по user id
+#### /api/v1/wallets/wallet/user [GET] - Получити гаманець по user id
 
 ***Вихідні параметри***
 
@@ -33,7 +33,7 @@
 }
 ```
 
-#### /api/v1/wallets/wallet/{wallet_id} [PUT] - Обновити гаманець по wallet id
+#### /api/v1/wallets/wallet/{wallet_id} [PUT] - Обновити гаманець по wallet id (Потрібна роль ADMIN)
 
 ***Вхідні параметри***
 
@@ -43,7 +43,7 @@
 }
 ```
 
-#### /api/v1/wallets/wallet/user/{user_tg_id} [PUT] - Обновити гаманець по user telegram_id
+#### /api/v1/wallets/wallet/user/{telegram_id} [PUT] - Обновити гаманець по user telegram_id (Потрібна роль ADMIN)
 
 ***Вхідні параметри***
 

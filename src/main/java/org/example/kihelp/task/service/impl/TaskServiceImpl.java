@@ -60,22 +60,40 @@ public class TaskServiceImpl implements TaskService {
 
         try {
             ProcessBuilder pb = new ProcessBuilder();
-            String pythonCommand = System.getProperty("python.command", "python");
+            String pythonCommand = System.getProperty("python.command", "python3");
             pb.command(pythonCommand, path);
             pb.command().addAll(request.args());
             pb.command().add(userDetails.telegramId());
 
             Process process = pb.start();
 
+            // Read standard output
+            BufferedReader stdOutput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            // Read standard error
+            BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
             boolean completed = process.waitFor(60, TimeUnit.SECONDS);
             if (!completed) {
                 process.destroyForcibly();
-                throw new RuntimeException(PROCESS_TIME_OUT);
+                throw new RuntimeException("PROCESS_TIME_OUT");
+            }
+
+            String line;
+            System.out.println("Standard Output:");
+            while ((line = stdOutput.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            System.out.println("Standard Error:");
+            while ((line = stdError.readLine()) != null) {
+                System.err.println(line);
             }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        System.out.println("here");
 
         var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", userDetails.telegramId()));
 

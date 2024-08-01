@@ -16,12 +16,12 @@ import java.io.File;
 public class MyTelegramBot extends TelegramLongPollingBot {
     @Override
     public String getBotUsername() {
-        return "helper_web_best_hackothon_bot";
+        return "ToiletTracker_bot";
     }
 
     @Override
     public String getBotToken() {
-        return "6721007474:AAH3Dn8kwjx6JmEZHadMo7xYoRR9tmOTfgI";
+        return "7045776273:AAFUmjspdhEvU-pRVTO_xmeM4anPyqd1MwY";
     }
 
     @Override

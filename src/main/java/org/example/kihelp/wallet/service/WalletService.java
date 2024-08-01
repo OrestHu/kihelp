@@ -10,7 +10,7 @@ public interface WalletService {
     void createWallet(User user, Wallet wallet);
     List<Wallet> getWallets();
     Wallet getWallet(Integer walletId);
-    Wallet getWalletByUser(User user);
+    Wallet getWalletByUser(Long userId);
     void updateWallet(Integer walletId, WalletRequest walletRequest);
-    void updateWalletByUser(User user, WalletRequest walletRequest);
+    void updateWalletByUser(Long userId, WalletRequest walletRequest);
 }

@@ -46,8 +46,8 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public Wallet getWalletByUser(User user) {
-        return walletRepository.findByUser(user)
+    public Wallet getWalletByUser(Long userId) {
+        return walletRepository.findByUserId(userId)
                 .orElseThrow(() -> new WalletNotFoundException(WALLET_NOT_FOUND));
     }
 
@@ -63,8 +63,8 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void updateWalletByUser(User user, WalletRequest walletRequest) {
-        var wallet = getWalletByUser(user);
+    public void updateWalletByUser(Long userId, WalletRequest walletRequest) {
+        var wallet = getWalletByUser(userId);
 
         if(walletRequest.amount() != null){
             wallet.setAmount(walletRequest.amount());

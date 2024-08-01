@@ -6,6 +6,8 @@ import org.example.kihelp.subject.exception.SubjectNotFoundException;
 import org.example.kihelp.task.exception.*;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.exception.TeacherNotFoundException;
+import org.example.kihelp.wallet.exception.TransactionAlreadyExistException;
+import org.example.kihelp.wallet.exception.TransactionNotFoundException;
 import org.example.kihelp.wallet.exception.WalletAlreadyExist;
 import org.example.kihelp.wallet.exception.WalletNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -75,8 +77,22 @@ public class GlobalExceptionHandler extends Throwable {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(TransactionAlreadyExistException.class)
+    public ResponseEntity<Map<String, String>> handleTransactionAlreadyExistException(TransactionAlreadyExistException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(MassageNotSentToTelegramException.class)
     public ResponseEntity<Map<String, String>> handleMassageNotSentToTelegramException(MassageNotSentToTelegramException ex){
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleTransactionNotFoundException(TransactionNotFoundException ex){
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

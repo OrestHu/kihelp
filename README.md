@@ -26,3 +26,7 @@
 ### Wallet
 
 6. [Деталі про Wallet](docs/wallet.md)
+
+### Transaction
+
+7. [Деталі про Transaction](docs/transaction.md)

@@ -29,4 +29,11 @@ public class UserApiServiceImpl implements UserApiService {
 
         return new UserResponseApi(user.getId(), user.getTelegramId());
     }
+
+    @Override
+    public UserResponseApi currentUserAccountByTelegramId(String telegramId) {
+        var user = userService.getUserByUserUUID(telegramId);
+
+        return new UserResponseApi(user.getId(), user.getTelegramId());
+    }
 }

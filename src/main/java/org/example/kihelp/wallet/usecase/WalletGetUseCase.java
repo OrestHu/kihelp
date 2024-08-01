@@ -7,5 +7,5 @@ import java.util.List;
 public interface WalletGetUseCase {
     List<WalletResponse> getWallets();
     WalletResponse getWallet(Integer walletId);
-    WalletResponse getWalletByUser(Long userId);
+    WalletResponse getWalletByUser();
 }

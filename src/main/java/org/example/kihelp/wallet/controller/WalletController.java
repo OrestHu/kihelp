@@ -1,5 +1,6 @@
 package org.example.kihelp.wallet.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.wallet.model.req.WalletRequest;
 import org.example.kihelp.wallet.model.resp.WalletResponse;
@@ -26,20 +27,20 @@ public class WalletController {
         return walletGetUseCase.getWallet(walletId);
     }
 
-    @GetMapping("/wallet/user/{user_id}")
-    public WalletResponse getWalletByUser(@PathVariable("user_id") Long userId){
-        return walletGetUseCase.getWalletByUser(userId);
+    @GetMapping("/wallet/user")
+    public WalletResponse getWalletByUser(){
+        return walletGetUseCase.getWalletByUser();
     }
 
     @PutMapping("/wallet/{wallet_id}")
     public void updateWallet(@PathVariable("wallet_id") Integer walletId,
-                             @RequestBody WalletRequest walletRequest){
+                             @Valid @RequestBody WalletRequest walletRequest){
         walletUpdateUseCase.updateWallet(walletId, walletRequest);
     }
 
-    @PutMapping("/wallet/user/{user_tg_id}")
-    public void updateWalletByUser(@PathVariable("user_tg_id") String userUUID,
-                                    @RequestBody WalletRequest walletRequest){
-        walletUpdateUseCase.updateWalletByUser(userUUID, walletRequest);
+    @PutMapping("/wallet/user/{telegram_id}")
+    public void updateWalletByUser(@PathVariable("telegram_id") String telegramId,
+                                   @Valid @RequestBody WalletRequest walletRequest){
+        walletUpdateUseCase.updateWalletByUser(telegramId, walletRequest);
     }
 }

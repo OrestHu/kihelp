@@ -1,7 +1,7 @@
 package org.example.kihelp.wallet.usecase.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.kihelp.user.service.UserService;
+import org.example.kihelp.user.api.service.UserApiService;
 import org.example.kihelp.wallet.mapper.WalletToWalletResponseMapper;
 import org.example.kihelp.wallet.model.resp.WalletResponse;
 import org.example.kihelp.wallet.service.WalletService;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WalletGetUseCaseImpl implements WalletGetUseCase {
     private final WalletService walletService;
-    private final UserService userService;
+    private final UserApiService userApiService;
     private final WalletToWalletResponseMapper walletToWalletResponseMapper;
 
     @Override
@@ -32,9 +32,9 @@ public class WalletGetUseCaseImpl implements WalletGetUseCase {
     }
 
     @Override
-    public WalletResponse getWalletByUser(Long userId) {
-        var user = userService.getUser(userId);
-        var wallet = walletService.getWalletByUser(user);
+    public WalletResponse getWalletByUser() {
+        var userId = userApiService.currentUserAccount().userId();
+        var wallet = walletService.getWalletByUser(userId);
 
         return walletToWalletResponseMapper.map(wallet);
     }
