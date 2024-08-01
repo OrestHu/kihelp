@@ -67,33 +67,15 @@ public class TaskServiceImpl implements TaskService {
 
             Process process = pb.start();
 
-            // Read standard output
-            BufferedReader stdOutput = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            // Read standard error
-            BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
             boolean completed = process.waitFor(60, TimeUnit.SECONDS);
             if (!completed) {
                 process.destroyForcibly();
-                throw new RuntimeException("PROCESS_TIME_OUT");
-            }
-
-            String line;
-            System.out.println("Standard Output:");
-            while ((line = stdOutput.readLine()) != null) {
-                System.out.println(line);
-            }
-
-            System.out.println("Standard Error:");
-            while ((line = stdError.readLine()) != null) {
-                System.err.println(line);
+                throw new RuntimeException(PROCESS_TIME_OUT);
             }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        System.out.println("here");
 
         var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", userDetails.telegramId()));
 

@@ -29,6 +29,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\mapper\imp
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\model\resp\TransactionResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\task\TaskUpdateUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\argument\ArgumentGetUseCaseImpl.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\exception\TransactionNotFoundException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\model\Transaction.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\request\TeacherUpdateRequest.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\Task.java
@@ -43,6 +44,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\service\Argu
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\service\impl\UserServiceImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\impl\ArgumentToArgumentResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\usecase\impl\UserCreateUseCaseImpl.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\NotEnoughAmountException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\model\Subject.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\service\WalletService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\model\request\SubjectRequest.java
@@ -53,6 +55,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\utils\Mess
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherGetUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\mapper\impl\WalletToWalletResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\contoller\UserController.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\usecase\TransactionDeleteUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\SubjectToSubjectResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\respository\TransactionRepository.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherCreateUseCaseImpl.java
@@ -71,6 +74,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\exception
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\util\MessageError.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\respository\WalletRepository.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\TaskRequestToTaskMapper.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\model\resp\EarningResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\Teacher.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\DirectoryNotFoundException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\util\MessageError.java
@@ -111,6 +115,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\req\Ar
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\TeacherCreateUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\task\TaskUpdateUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\mapper\impl\TeacherToTeacherResponseMapperImpl.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\utils\ValidationMessages.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\resp\UserResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\model\resp\SubjectResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\controller\TransactionController.java
@@ -130,6 +135,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\repositor
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\task\TaskGetUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\impl\UserToUserResponseMapperImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\exception\WalletAlreadyExist.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\usecase\impl\TransactionDeleteUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\SubjectDeleteUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\TestToTestInfoResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\argument\ArgumentCreateUseCase.java

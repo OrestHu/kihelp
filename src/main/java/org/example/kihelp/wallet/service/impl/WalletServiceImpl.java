@@ -63,6 +63,17 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
+    public void topUpWallet(Integer walletId, WalletRequest walletRequest) {
+        var wallet = getWallet(walletId);
+
+        if(walletRequest.amount() != null){
+            wallet.setAmount(walletRequest.amount() + wallet.getAmount());
+        }
+
+        walletRepository.save(wallet);
+    }
+
+    @Override
     public void updateWalletByUser(Long userId, WalletRequest walletRequest) {
         var wallet = getWalletByUser(userId);
 

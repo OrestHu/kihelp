@@ -47,7 +47,7 @@ public class TaskController {
 
     @PostMapping("/task/program/{task_id}")
     public void programTask(@PathVariable("task_id") Integer taskId,
-                                           @RequestBody TaskProgramRequest programRequest) throws IOException {
+                            @RequestBody TaskProgramRequest programRequest) throws IOException {
         taskProgramUseCase.programTask(taskId, programRequest);
     }
 

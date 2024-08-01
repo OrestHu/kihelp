@@ -3,6 +3,7 @@ package org.example.kihelp.wallet.usecase.impl;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.wallet.mapper.TransactionToTransactionResponseMapper;
 import org.example.kihelp.wallet.model.req.TransactionFindRequest;
+import org.example.kihelp.wallet.model.req.WalletRequest;
 import org.example.kihelp.wallet.model.resp.EarningResponse;
 import org.example.kihelp.wallet.model.resp.TransactionResponse;
 import org.example.kihelp.wallet.service.TransactionService;

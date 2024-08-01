@@ -13,6 +13,7 @@ public class TransactionToTransactionResponseMapperImpl implements TransactionTo
         return new TransactionResponse(
                 transaction.getId(),
                 transaction.getInitial(),
+                transaction.getAmount(),
                 transaction.getCreatedTimeStamp().toString()
         );
     }
