@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.kihelp.user.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -31,9 +32,28 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorizeHttpRequests ->
                         authorizeHttpRequests
-                                .requestMatchers("/api/v1/users/user").permitAll()
-                                .requestMatchers("/api/v1/wallets/wallet/user/{user_tg_id}").permitAll()
-                                .requestMatchers("/api/v1/transactions/transaction").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/v1/users/user").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/v1/subjects/subject").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/subjects/subject/{subject_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/v1/subjects/subject/{subject_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/v1/teachers/teacher").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/v1/teachers/teacher").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/teachers/teacher/{teacher_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/v1/teachers/teacher/{teacher_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/v1/tasks/task").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/tasks/task/{task_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PATCH, "/api/v1/tasks/task/{task_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/api/v1/histories/history").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/api/v1/histories/history/user/{user_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/v1/wallets/wallet").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/v1/wallets/wallet/{wallet_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/v1/wallets/wallet/{wallet_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/v1/wallets/wallet/user/{telegram_id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST, "/api/v1/transactions/transaction").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/v1/transactions/transaction/all").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/api/v1/transactions/earnings").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/v1/transactions/transaction/{transaction_id}").hasRole("ADMIN")
+                                .requestMatchers("/api/v1/arguments/argument/**").hasRole("ADMIN")
                                 .requestMatchers("/error").permitAll()
                                 .anyRequest().authenticated()
                 )

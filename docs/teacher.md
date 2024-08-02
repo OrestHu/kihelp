@@ -1,4 +1,4 @@
-#### /api/v1/teachers/teacher [POST] - Створити викладача
+#### /api/v1/teachers/teacher [POST] - Створити викладача (Для Адмінів)
 
 ***Вхідні параметри***
 
@@ -33,7 +33,7 @@
 ]
 ```
 
-#### /api/v1/teachers/teacher [GET] - Получити викладачів
+#### /api/v1/teachers/teacher [GET] - Получити викладачів (Длч Адмінів)
 
 ***Вихідні параметри***
 
@@ -46,9 +46,9 @@
 ]
 ```
 
-#### /api/v1/teachers/teacher/{teacher_id} [DELETE] - Удалити викладача по id
+#### /api/v1/teachers/teacher/{teacher_id} [DELETE] - Удалити викладача по id (Для Адмінів)
 
-#### /api/vq/teachers/teacher/{teacher_id} [PUT] - Обновити викладача
+#### /api/vq/teachers/teacher/{teacher_id} [PUT] - Обновити викладача (Для Адмінів)
 
 ***Вхідні параметри***
 

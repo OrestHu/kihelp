@@ -1,4 +1,4 @@
-#### /api/v1/subjects/subject [POST] - Створити предмет
+#### /api/v1/subjects/subject [POST] - Створити предмет (Для Адмінів)
 
 ***Вхідні параметри***
 
@@ -32,9 +32,9 @@
 }
 ```
 
-#### /api/v1/subjects/subject/{subject_id} [DELETE] - Удалити Subject по id
+#### /api/v1/subjects/subject/{subject_id} [DELETE] - Удалити Subject по id (Для Адмінів)
 
-#### /api/v1/subjects/subject/{subject_id} [PUT] - Редагувати Subject по id
+#### /api/v1/subjects/subject/{subject_id} [PUT] - Редагувати Subject по id (Для Адмінів)
 
 ***Вхідні параметри***
 

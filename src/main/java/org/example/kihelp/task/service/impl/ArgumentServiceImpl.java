@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.exception.ArgumentAlreadyExistException;
 import org.example.kihelp.task.exception.ArgumentNotFoundException;
 import org.example.kihelp.task.model.Argument;
+import org.example.kihelp.task.model.req.ArgumentRequest;
 import org.example.kihelp.task.repository.ArgumentRepository;
 import org.example.kihelp.task.service.ArgumentService;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,23 @@ public class ArgumentServiceImpl implements ArgumentService {
     @Override
     public List<Argument> getArguments() {
         return argumentRepository.findAll();
+    }
+
+    @Override
+    public void deleteArgument(Integer argumentId) {
+        var argument = getArgument(argumentId);
+
+        argumentRepository.delete(argument);
+    }
+
+    @Override
+    public void updateArgument(Integer argumentId, ArgumentRequest request) {
+        var argument = getArgument(argumentId);
+
+        if(request.name() != null && !request.name().isEmpty()){
+            argument.setName(request.name());
+        }
+
+        argumentRepository.save(argument);
     }
 }
