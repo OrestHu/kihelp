@@ -10,15 +10,19 @@ import org.example.kihelp.task.repository.TaskRepository;
 import org.example.kihelp.task.service.TaskService;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.model.Teacher;
-import org.example.kihelp.user.api.service.UserApiService;
+import org.example.kihelp.user.api.model.UserResponseApi;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.example.kihelp.task.util.MessageError.*;
@@ -26,9 +30,10 @@ import static org.example.kihelp.task.util.MessageError.*;
 @Service
 @RequiredArgsConstructor
 public class TaskServiceImpl implements TaskService {
-    private String FILE_DIRECTORY = "tasks/answer/";
+    @Value("${file.directory}")
+    private String FILE_DIRECTORY;
+
     private final TaskRepository taskRepository;
-    private final UserApiService userApiService;
 
     @Override
     public void createTask(Task task) {
@@ -54,32 +59,44 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public String programTask(Integer taskId, TaskProgramRequest request) {
-        var userDetails = userApiService.currentUserAccount();
+    public String programTask(Integer taskId, TaskProgramRequest request, UserResponseApi response) {
         var path = getTaskById(taskId).getPath();
 
         try {
-            ProcessBuilder pb = new ProcessBuilder();
-            String pythonCommand = System.getProperty("python.command", "python");
-            pb.command(pythonCommand, path);
-            pb.command().addAll(request.args());
-            pb.command().add(userDetails.telegramId());
+            List<String> command = new ArrayList<>(List.of(
+                    System.getProperty("python.command", "python3"),
+                    path
+            ));
+            command.addAll(request.args());
+            command.add(response.telegramId());
+
+            ProcessBuilder pb = new ProcessBuilder(command);
+            pb.redirectErrorStream(true);
 
             Process process = pb.start();
 
-            boolean completed = process.waitFor(60, TimeUnit.SECONDS);
-            if (!completed) {
+            CompletableFuture<String> output = CompletableFuture.supplyAsync(() -> {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+                    return reader.lines().collect(Collectors.joining("\n"));
+                } catch (IOException e) {
+                    throw new UncheckedIOException(e);
+                }
+            });
+
+            if (!process.waitFor(60, TimeUnit.SECONDS)) {
                 process.destroyForcibly();
                 throw new RuntimeException(PROCESS_TIME_OUT);
             }
 
+            String result = output.get();
+            System.out.println("Вивід Python:\n" + result);
+
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Помилка виконання Python скрипту", e);
         }
 
-        var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", userDetails.telegramId()));
-
-        return String.format("task_%s.%s", userDetails.telegramId(), extension);
+        var extension = findFileAndDetermineExtension(FILE_DIRECTORY, String.format("task_%s", response.telegramId()));
+        return String.format("task_%s.%s", response.telegramId(), extension);
     }
 
     @Override
@@ -96,6 +113,9 @@ public class TaskServiceImpl implements TaskService {
         if(request.title() != null && !request.title().isEmpty()){
             task.setTitle(request.title());
         }
+        if(request.info() != null && !request.info().isEmpty()){
+            task.setInfo(request.info());
+        }
         if(request.path() != null && !request.path().isEmpty()){
             task.setPath(request.path());
         }
@@ -104,6 +124,9 @@ public class TaskServiceImpl implements TaskService {
         }
         if(request.discount() != null){
             task.setDiscount(request.discount());
+        }
+        if(request.visible() != null){
+            task.setVisible(request.visible());
         }
 
         taskRepository.save(task);

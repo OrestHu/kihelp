@@ -1,6 +1,7 @@
 HELP.md
 
-.env
+/src/main/resources/application.yml
+/tasks
 
 ### STS ###
 .apt_generated

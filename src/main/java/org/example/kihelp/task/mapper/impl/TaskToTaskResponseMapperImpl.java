@@ -16,10 +16,12 @@ public class TaskToTaskResponseMapperImpl implements TaskToTaskResponseMapper {
         return new TaskResponse(
                 task.getId(),
                 subTitle,
+                task.getInfo(),
                 task.getTitle(),
                 (double)task.getPrice(),
                 task.getDiscount(),
                 task.getType(),
+                task.getVisible(),
                 task.getTeacher().getId(),
                 args
         );

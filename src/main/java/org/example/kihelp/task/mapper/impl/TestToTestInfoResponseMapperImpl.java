@@ -25,9 +25,11 @@ public class TestToTestInfoResponseMapperImpl implements TestToTestInfoResponseM
                 task.getId(),
                 titleOfSubject,
                 task.getTitle(),
+                task.getInfo(),
                 (double) task.getPrice(),
                 task.getDiscount(),
                 task.getType(),
+                task.getVisible(),
                 task.getTeacher().getId(),
                 args
         );

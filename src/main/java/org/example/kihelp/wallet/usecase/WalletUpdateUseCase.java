@@ -8,4 +8,5 @@ import org.springframework.validation.annotation.Validated;
 public interface WalletUpdateUseCase {
     void updateWallet(Integer walletId, @Valid WalletRequest walletRequest);
     void updateWalletByUser(String telegramId, @Valid WalletRequest walletRequest);
+    void topUpWallet(Long userId, WalletRequest walletRequest);
 }

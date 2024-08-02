@@ -10,10 +10,11 @@ public record TaskRequest(
         @NotBlank(message = "Заголовок для завдання не має бути пустим")
         @Size(min = 5, message = "Довжина заголовка повинна бути не менше ніж {min} символів")
         String title,
+        String info,
         @NotBlank(message = "Шлях для файла для завдання не має бути пустим")
         String path,
         @NotNull(message = "Ціна не має дорівнювати null")
-        Integer price,
+        Double price,
         Integer teacherId,
         Boolean type,
         List<Integer> argumentsId

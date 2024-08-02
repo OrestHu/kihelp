@@ -8,6 +8,7 @@
 ```json
 {
   "title": "",
+  "info": "",
   "path": "",
   "price": 1,
   "teacherId": 1,
@@ -29,11 +30,13 @@
   {
     "id": 1,
     "subjectTitle": "",
+    "info": "",
     "title": "",
     "path": "",
     "price": 1,
     "discount": 1.0,
     "type": true,
+    "visible": true,
     "teacherId": 1,
     "args": [
       "Введіть ФАЛ0",
@@ -52,11 +55,13 @@
 {
   "id": 1,
   "subjectTitle": "",
+  "info": "",
   "title": "",
   "path": "",
   "price": 1,
   "discount": 1.0,
   "type": true,
+  "visible": true,
   "teacherId": 1,
   "args": [
     "Введіть ФАЛ0",
@@ -74,11 +79,13 @@
 {
   "id": 1,
   "subjectTitle": "",
+  "info": "",
   "title": "",
   "path": "",
   "price": 1,
   "discount": 1.0,
   "type": true,
+  "visible": true,
   "teacherId": 1,
   "args": [
     "Введіть ФАЛ0",
@@ -111,9 +118,11 @@
 ```json
 {
   "title": "",
+  "info": "",
   "path": "",
   "price": 1,
-  "discount": 1.0
+  "discount": 1.0,
+  "visible": true
 }
 ```
 

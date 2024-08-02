@@ -65,8 +65,8 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void topUpWallet(Integer walletId, WalletRequest walletRequest) {
-        var wallet = getWallet(walletId);
+    public void topUpWallet(Long userId, WalletRequest walletRequest) {
+        var wallet = getWalletByUser(userId);
 
         if(walletRequest.amount() != null){
             wallet.setAmount(walletRequest.amount() + wallet.getAmount());
@@ -87,7 +87,9 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public void validatedBalance(Wallet wallet, Double price) {
+    public void validatedBalance(Long userId, Double price) {
+        var wallet = getWalletByUser(userId);
+
         if(wallet.getAmount() < price){
             throw new NotEnoughAmountException(
                     String.format(NOT_ENOUGH_MONEY, price - wallet.getAmount())

@@ -1,9 +1,7 @@
 package org.example.kihelp.task.model.resp;
 
-
 public record TaskProgramResponse(
-        String fileName,
-        String fileType,
-        String fileLink
+        String title,
+        String createdTimeStamp
 ) {
 }

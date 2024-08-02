@@ -24,4 +24,9 @@ public class WalletUpdateUseCaseImpl implements WalletUpdateUseCase {
 
         walletService.updateWalletByUser(user.userId(), walletRequest);
     }
+
+    @Override
+    public void topUpWallet(Long userId, WalletRequest walletRequest) {
+        walletService.topUpWallet(userId, walletRequest);
+    }
 }

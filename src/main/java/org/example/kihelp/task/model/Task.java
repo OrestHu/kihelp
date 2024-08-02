@@ -17,10 +17,12 @@ public class Task {
     private Integer id;
     @Column(name = "title", nullable = false)
     private String title;
+    private String info;
     private String path;
-    private Integer price;
+    private Double price;
     private Double discount;
     private Boolean type;
+    private Boolean visible;
 
     @ManyToMany
     @JoinTable(

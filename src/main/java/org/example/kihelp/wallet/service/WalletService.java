@@ -12,7 +12,7 @@ public interface WalletService {
     Wallet getWallet(Integer walletId);
     Wallet getWalletByUser(Long userId);
     void updateWallet(Integer walletId, WalletRequest walletRequest);
-    void topUpWallet(Integer walletId, WalletRequest walletRequest);
+    void topUpWallet(Long userId, WalletRequest walletRequest);
     void updateWalletByUser(Long userId, WalletRequest walletRequest);
-    void validatedBalance(Wallet wallet, Double price);
+    void validatedBalance(Long userId, Double price);
 }

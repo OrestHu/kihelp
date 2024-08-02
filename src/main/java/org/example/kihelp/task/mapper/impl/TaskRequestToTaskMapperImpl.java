@@ -1,7 +1,6 @@
 package org.example.kihelp.task.mapper.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.example.kihelp.subject.service.SubjectService;
 import org.example.kihelp.task.mapper.TaskRequestToTaskMapper;
 import org.example.kihelp.task.model.Task;
 import org.example.kihelp.task.model.req.TaskRequest;
@@ -19,10 +18,12 @@ public class TaskRequestToTaskMapperImpl implements TaskRequestToTaskMapper {
     public Task map(TaskRequest taskRequest) {
         Task task = new Task();
         task.setTitle(taskRequest.title());
+        task.setInfo(taskRequest.info());
         task.setPath(taskRequest.path());
         task.setPrice(taskRequest.price());
         task.setDiscount(0.0);
         task.setType(taskRequest.type());
+        task.setVisible(true);
 
         var teacher = teacherService.getTeacher(taskRequest.teacherId());
         var arguments = taskRequest.argumentsId().stream().map(argumentService::getArgument).toList();

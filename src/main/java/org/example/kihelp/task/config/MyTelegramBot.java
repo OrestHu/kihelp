@@ -11,7 +11,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
-
 import static org.example.kihelp.task.util.MessageError.MESSAGE_BLOCKED_MY_USER;
 
 @Configuration

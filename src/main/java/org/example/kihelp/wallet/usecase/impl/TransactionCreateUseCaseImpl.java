@@ -22,9 +22,8 @@ public class TransactionCreateUseCaseImpl implements TransactionCreateUseCase {
     public void createTransaction(TransactionRequest request) {
         var transaction = transactionRequestToTransactionMapper.map(request);
         var user = userApiService.currentUserAccountByTelegramId(request.telegramId());
-        var wallet = walletService.getWalletByUser(user.userId());
 
         transactionService.createTransaction(transaction);
-        walletService.topUpWallet(wallet.getId(), new WalletRequest(request.amount()));
+        walletService.topUpWallet(user.userId(), new WalletRequest(request.amount()));
     }
 }

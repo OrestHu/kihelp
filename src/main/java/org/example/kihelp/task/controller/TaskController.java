@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.model.req.TaskRequest;
 import org.example.kihelp.task.model.req.TaskUpdateRequest;
+import org.example.kihelp.task.model.resp.TaskProgramResponse;
 import org.example.kihelp.task.model.resp.TaskResponse;
 import org.example.kihelp.task.usecase.task.*;
 import org.springframework.web.bind.annotation.*;
@@ -45,9 +46,9 @@ public class TaskController {
     }
 
     @PostMapping("/task/program/{task_id}")
-    public void programTask(@PathVariable("task_id") Integer taskId,
-                            @RequestBody TaskProgramRequest programRequest) throws IOException {
-        taskProgramUseCase.programTask(taskId, programRequest);
+    public TaskProgramResponse programTask(@PathVariable("task_id") Integer taskId,
+                                           @RequestBody TaskProgramRequest programRequest) throws IOException {
+        return taskProgramUseCase.programTask(taskId, programRequest);
     }
 
     @DeleteMapping("/task/{task_id}")

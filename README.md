@@ -30,3 +30,7 @@
 ### Transaction
 
 7. [Деталі про Transaction](docs/transaction.md)
+
+### History
+
+8. [Деталі про History](docs/hirstory.md)

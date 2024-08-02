@@ -6,8 +6,10 @@ import jakarta.validation.constraints.Size;
 public record TaskUpdateRequest(
         @Size(min = 5, message = "Довжина заголовка повинна бути не менше ніж {min} символів")
         String title,
+        String info,
         String path,
-        Integer price,
-        Double discount
+        Double price,
+        Double discount,
+        Boolean visible
 ) {
 }
