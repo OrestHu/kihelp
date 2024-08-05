@@ -19,7 +19,6 @@ org\example\kihelp\teacher\mapper\TeacherUpdateRequestToTeacherMapper.class
 org\example\kihelp\teacher\exception\TeacherNotFoundException.class
 org\example\kihelp\teacher\model\resp\TeacherResponse.class
 org\example\kihelp\subject\model\request\SubjectRequest.class
-org\example\kihelp\task\model\resp\TaskProgramResponse.class
 org\example\kihelp\subject\mapper\impl\SubjectToSubjectResponseMapperImpl.class
 org\example\kihelp\teacher\usecase\TeacherGetUseCase.class
 org\example\kihelp\task\model\resp\TaskResponse.class

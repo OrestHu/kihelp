@@ -22,7 +22,7 @@ public class WalletController {
         return walletGetUseCase.getWallets();
     }
 
-    @GetMapping("/wallet/{wallet_id}")
+    @GetMapping("/wallet/by/{wallet_id}")
     public WalletResponse getWallet(@PathVariable("wallet_id") Integer walletId){
         return walletGetUseCase.getWallet(walletId);
     }
@@ -32,13 +32,13 @@ public class WalletController {
         return walletGetUseCase.getWalletByUser();
     }
 
-    @PutMapping("/wallet/{wallet_id}")
+    @PutMapping("/wallet/by/{wallet_id}")
     public void updateWallet(@PathVariable("wallet_id") Integer walletId,
                              @Valid @RequestBody WalletRequest walletRequest){
         walletUpdateUseCase.updateWallet(walletId, walletRequest);
     }
 
-    @PutMapping("/wallet/user/{telegram_id}")
+    @PutMapping("/wallet/by/user/{telegram_id}")
     public void updateWalletByUser(@PathVariable("telegram_id") String telegramId,
                                    @Valid @RequestBody WalletRequest walletRequest){
         walletUpdateUseCase.updateWalletByUser(telegramId, walletRequest);
