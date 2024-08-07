@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface HistoryRepository extends JpaRepository<History, Long> {
     List<History> findAllByUserId(Long userId);
+    List<History> findAllByTaskId(Integer taskId);
 }

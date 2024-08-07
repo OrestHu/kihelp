@@ -37,3 +37,5 @@
   "amount": 1
 }
 ```
+
+#### /api/v1/histories/history/by/task/{task_id} [DELETE] - Удалити історії проходжуень по task id

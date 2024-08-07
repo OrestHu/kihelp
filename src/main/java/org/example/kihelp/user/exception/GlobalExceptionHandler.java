@@ -39,13 +39,6 @@ public class GlobalExceptionHandler extends Throwable {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(JwtTokenExpiredException.class)
-    public ResponseEntity<Map<String, String>> handleJwtTokenExpiredException(JwtTokenExpiredException ex){
-        Map<String, String> error = new HashMap<>();
-        error.put("error", ex.getMessage());
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(RoleNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleRoleNotFoundException(RoleNotFoundException ex){
         Map<String, String> error = new HashMap<>();

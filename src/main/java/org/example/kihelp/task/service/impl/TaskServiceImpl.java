@@ -9,7 +9,9 @@ import org.example.kihelp.task.model.req.TaskProgramRequest;
 import org.example.kihelp.task.model.req.TaskUpdateRequest;
 import org.example.kihelp.task.model.req.ProgramRequest;
 import org.example.kihelp.task.repository.TaskRepository;
+import org.example.kihelp.task.service.HistoryService;
 import org.example.kihelp.task.service.TaskService;
+import org.example.kihelp.task.usecase.history.HistoryDeleteUseCase;
 import org.example.kihelp.teacher.exception.TeacherAlreadyExist;
 import org.example.kihelp.teacher.model.Teacher;
 import org.example.kihelp.user.api.model.UserResponseApi;
@@ -27,6 +29,7 @@ import static org.example.kihelp.task.util.MessageError.*;
 public class TaskServiceImpl implements TaskService {
     private final RestTemplate restTemplate;
     private final TaskRepository taskRepository;
+    private final HistoryDeleteUseCase historyDeleteUseCase;
 
     @Override
     public void createTask(Task task) {
@@ -81,6 +84,7 @@ public class TaskServiceImpl implements TaskService {
     public void deleteTask(Integer taskId) {
         var task = getTaskById(taskId);
 
+        historyDeleteUseCase.deleteHistoriesByTask(taskId);
         taskRepository.delete(task);
     }
 

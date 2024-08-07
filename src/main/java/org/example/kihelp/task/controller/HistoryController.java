@@ -3,11 +3,9 @@ package org.example.kihelp.task.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.kihelp.task.model.resp.HistoryAmountResponse;
 import org.example.kihelp.task.model.resp.HistoryResponse;
+import org.example.kihelp.task.usecase.history.HistoryDeleteUseCase;
 import org.example.kihelp.task.usecase.history.HistoryGetUseCase;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HistoryController {
     private final HistoryGetUseCase historyGetUseCase;
+    private final HistoryDeleteUseCase historyDeleteUseCase;
 
     @GetMapping("/history")
     public List<HistoryResponse> getHistories(){
@@ -30,5 +29,10 @@ public class HistoryController {
     @GetMapping("/history/amount/{user_id}")
     public HistoryAmountResponse getAmountOfMoneyByUser(@PathVariable("user_id") Long userId){
         return historyGetUseCase.getAmountOfMoneyByUser(userId);
+    }
+
+    @DeleteMapping("/history/by/task/{task_id}")
+    public void deleteHistoryByTask(@PathVariable("task_id") Integer taskId){
+        historyDeleteUseCase.deleteHistoriesByTask(taskId);
     }
 }

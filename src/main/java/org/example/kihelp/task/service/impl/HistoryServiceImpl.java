@@ -39,4 +39,11 @@ public class HistoryServiceImpl implements HistoryService {
                 .mapToDouble(Double::doubleValue)
                 .sum();
     }
+
+    @Override
+    public void deleteHistoriesByTask(Integer taskId) {
+        var histories = historyRepository.findAllByTaskId(taskId);
+
+        historyRepository.deleteAll(histories);
+    }
 }

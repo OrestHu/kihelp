@@ -9,4 +9,5 @@ public interface HistoryService {
     List<History> getHistories();
     List<History> getHistoriesByUser(Long userId);
     Double getAmountOfMoneyByUser(Long userId);
+    void deleteHistoriesByTask(Integer taskId);
 }

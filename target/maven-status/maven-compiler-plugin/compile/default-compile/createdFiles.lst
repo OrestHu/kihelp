@@ -66,7 +66,6 @@ org\example\kihelp\subject\usecase\SubjectUpdateUseCase.class
 org\example\kihelp\teacher\mapper\TeacherRequestToTeacherMapper.class
 org\example\kihelp\teacher\usecase\TeacherUpdateUseCase.class
 org\example\kihelp\teacher\model\request\TeacherUpdateRequest.class
-org\example\kihelp\user\exception\JwtTokenExpiredException.class
 org\example\kihelp\user\usecase\impl\UserGetUseCaseImpl.class
 org\example\kihelp\user\usecase\UserCreateUseCase.class
 org\example\kihelp\teacher\exception\TeacherAlreadyExist.class

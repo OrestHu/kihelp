@@ -38,6 +38,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\exception
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\model\resp\EarningResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\model\Teacher.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\exception\DirectoryNotFoundException.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\history\HistoryDeleteUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\model\req\TransactionFindRequest.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\api\service\UserApiService.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\mapper\SubjectRequestToSubjectMapper.java
@@ -122,7 +123,6 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\mapper\imp
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\contoller\UserController.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\usecase\TransactionDeleteUseCase.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\usecase\impl\TeacherCreateUseCaseImpl.java
-C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\JwtTokenExpiredException.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\model\resp\TaskResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\teacher\mapper\TeacherRequestToTeacherMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\exception\UserNotFoundException.java
@@ -163,6 +163,7 @@ C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\subject\usecase\S
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\wallet\utils\ValidationMessages.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\mapper\HistoryToHistoryResponseMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\repository\HistoryRepository.java
+C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\task\usecase\impl\history\HistoryDeleteUseCaseImpl.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\model\resp\UserResponse.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\mapper\UserRegisterRequestToUserMapper.java
 C:\Users\horuz\Desktop\KIHelp\src\main\java\org\example\kihelp\user\util\JwtUtils.java
